@@ -28,3 +28,35 @@ public:
         return flag;
     }
 };
+
+
+//////////////////java/////////////////////////
+/**
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null)return head;
+        ListNode flag = head;
+        ListNode flag1 = head.next;
+        ListNode flag2;
+        head.next = null;
+        while(flag1 != null){
+            flag2 = flag1;
+            flag1 = flag1.next;
+            
+            flag2.next = flag;
+            flag = flag2;
+            
+            if(flag1 == null)break;
+        }
+        return flag;
+    }
+}
+**/
