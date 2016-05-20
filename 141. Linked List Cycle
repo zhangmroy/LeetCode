@@ -1,0 +1,35 @@
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        if(head == null || head.next == null || head.next.next == null)return false;
+        ListNode p1 = head.next;
+        ListNode p2 = p1.next;
+        if(p2 == head)return true;
+        while(p1 !=null && p2 != null){
+            p2 = p2.next;
+            if(p2 == null)return false;
+            p1 = p1.next;
+            if(p1 == p2)return true;
+            p2 = p2.next;
+            if(p2 == null)return false;
+            if(p1 == p2)return true;
+            
+        }
+        return false;
+    }
+}
+
+/*
+  设置两个游标p1 p2  p2一次两步,p1一次一步.  如果有环,p2会赶上p1
+  注意越界问题
+*/
