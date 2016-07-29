@@ -1,0 +1,23 @@
+public class Solution {
+    public int numTrees(int n) {
+        if(n==0)return 1;
+        if(n<3)return n;
+        int []a=new int[n+1];
+        a[0] = 1;
+        a[1] = 1;
+        a[2] = 2;
+        int sum;
+        for (int i=3;i<=n;i++){
+            sum = 0;
+            for (int j=0;j<i;j++){
+                sum += (a[j]*a[i-1-j]);
+            }
+            a[i] = sum;
+        }
+        return a[n];
+    }
+}
+
+/*
+1.动态规划：算出每一个a[n]和其他的关系
+*/
